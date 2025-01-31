@@ -6,4 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserController::class, 'index'])->name('users.index');
 Route::get('/article', [ArticleController::class, 'index'])->name('article.index');
+
+Route::get('/users-search', [ArticleController::class, 'viewSearch'])->name('article.search-view');
+Route::get('/search-users', [ArticleController::class, 'search'])->name('article.search');
 // Route::get('/search', [UserController::class, 'search'])->name('users.search');

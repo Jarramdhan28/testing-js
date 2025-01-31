@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -24,5 +25,23 @@ class ArticleController extends Controller
         }
 
         return view('article', compact('articles'));
+    }
+
+    public function viewSearch()
+    {
+        return view('select-live');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+
+        // Ambil user berdasarkan pencarian
+        $users = User::where('name', 'like', "%$query%")
+        ->orWhere('email', 'like', "%$query%")
+        ->limit(10)
+            ->get();
+
+        return response()->json($users);
     }
 }
