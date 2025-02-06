@@ -24,7 +24,9 @@ class ArticleController extends Controller
             ]);
         }
 
-        return view('article', compact('articles'));
+        $users = User::all();
+
+        return view('article', compact('articles', 'users'));
     }
 
     public function viewSearch()
@@ -43,5 +45,18 @@ class ArticleController extends Controller
             ->get();
 
         return response()->json($users);
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id'
+        ]);
+
+        $article = Article::findOrFail($id);
+        $article->user_id = $request->user_id;
+        $article->save();
+
+        return response()->json(['message' => 'User berhasil diperbarui!']);
     }
 }

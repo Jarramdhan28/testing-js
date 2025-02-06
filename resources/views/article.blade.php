@@ -8,8 +8,9 @@
             pagination-id="articlePagination" 
             url="{{ route('article.index') }}" 
             type="articles" 
-            :columns="['ID', 'Title', 'Creator','Content']" 
+            :columns="['ID', 'Title', 'Creator','Content', 'aksi']" 
             :items="$articles" 
+            :users="$users"
         />
     </div>
 </x-app-layout>
