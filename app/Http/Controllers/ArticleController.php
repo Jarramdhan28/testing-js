@@ -59,4 +59,14 @@ class ArticleController extends Controller
 
         return response()->json(['message' => 'User berhasil diperbarui!']);
     }
+
+    public function tab()
+    {
+        return view('tab');
+    }
+
+    public function tabDua()
+    {
+        return view('tab-dua');
+    }
 }
