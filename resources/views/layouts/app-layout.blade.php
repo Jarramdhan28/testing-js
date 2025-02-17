@@ -17,6 +17,7 @@
          <nav class="flex gap-6">
             <a href="{{ route('users.index')}}" class="bg-blue-200 p-2">Data User</a>
             <a href="{{ route('article.index')}}" class="bg-blue-200 p-2">Data Article</a>
+            <a href="{{ route('penilaian')}}" class="bg-blue-200 p-2">Penilaian</a>
         </nav>
         <div class="mt-6">
             {{ $slot }}

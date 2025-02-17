@@ -13,5 +13,7 @@ Route::get('/search-users', [ArticleController::class, 'search'])->name('article
 Route::get('/tab-article', [ArticleController::class, 'tab'])->name('article.tab');
 Route::get('/tab-article-dua', [ArticleController::class, 'tabDua'])->name('article.tab-dua');
 
+Route::get('/penilaian', [ArticleController::class, 'nilai'])->name('penilaian');
+
 Route::post('/update-article-user/{id}', [ArticleController::class, 'updateUser']);
 // Route::get('/search', [UserController::class, 'search'])->name('users.search');
